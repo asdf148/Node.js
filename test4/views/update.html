@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Post</title>
+</head>
+<body>
+    <h1>Update Post</h1>
+    <form action="/post/update?_method=PUT" method="POST">
+        <input type="hidden" name="UserId" value="{{UserId}}">
+        <input type="hidden" name="PostId" value="{{PostId}}">
+        <p>제목</p>
+        <input name="title" required>
+        <p>내용</p>
+        <textarea name="content" required rows="30" cols="60">글을 써주세요.</textarea>
+        <button type="submit">저장</button>
+    </form>
+</body>
+</html>
