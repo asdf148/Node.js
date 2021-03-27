@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+</head>
+<body>
+    <a href="/">index</a>
+    <a href="/write">글 쓰기</a>
+    <p>로그인한 사용자: {{user.nick}}</p>
+    {% for post in posts %}
+        <div id="post">
+            <!-- <input type="hidden" value="{{post.User.id}}">
+            <input type="hidden" value="{{post.id}}"> -->
+            <a href="/post/detail/{{post.id}}">{{post.title}}</a>
+            <p>{{post.content}}</p>
+            <p>{{post.User.nick}}</p>
+            {% if user.nick == post.User.nick %}
+            <a href="post/update?post={{post.id}}&&user={{post.User.id}}">수정</a>
+            <form action="post/delete/{{post.id}}?_method=DELETE" method="POST">
+                <!-- <input type="hidden" name="_method" value="delete"> -->
+                <button type="submit">삭제</button>
+            </form>
+            {% endif %}
+        </div>
+    {% endfor %}
+</body>
+</html>
+</body>
+</html>

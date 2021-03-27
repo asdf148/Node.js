@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+</head>
+<body>
+    <h1>{{detail.title}}</h1>
+    <p>{{detail.content}}</p>
+    {%for file in files%}
+        {% if (file.type == "png") or (file.type == "img") or (file.type == "jpg")%}
+        <img src="/uploadedFiles/{{file.name}}" width="400px">
+        {% elif file.type == "mp3"%}
+        <audio controls>
+            <source src="/uploadedFiles/{{file.name}}" type="audio/mp3">
+        </audio>
+        {% elif file.type == "mp4"%}
+        <video controls width="400px">
+            <source src="/uploadedFiles/{{file.name}}" type="video/mp4">
+        </video>
+        {% endif %}
+    {%endfor%}
+    <form action="/" method="POST">
+        <input type="text">
+        <button type="submit">작성</button>
+    </form>
+</body>
+</html>
